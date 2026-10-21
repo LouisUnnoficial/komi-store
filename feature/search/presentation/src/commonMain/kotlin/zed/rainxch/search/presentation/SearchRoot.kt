@@ -1,6 +1,11 @@
 package zed.rainxch.search.presentation
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.material.icons.rounded.FilterList
+import zed.rainxch.core.presentation.components.buttons.KomiIconButton
+import zed.rainxch.core.presentation.components.badge.KomiBadgedBox
+import zed.rainxch.core.presentation.components.badge.KomiBadgeTone
+import zed.rainxch.core.presentation.components.badge.KomiBadge
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -23,7 +28,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -73,6 +77,7 @@ import zed.rainxch.core.presentation.components.buttons.RepoLayoutToggle
 import zed.rainxch.core.presentation.components.buttons.KomiFab
 import zed.rainxch.core.presentation.components.cards.DiscoveryRepoCard
 import zed.rainxch.core.presentation.components.icon.KomiIcon
+import zed.rainxch.core.presentation.components.bars.KomiTopBar
 import zed.rainxch.core.presentation.components.inputs.KomiTextField
 import zed.rainxch.core.presentation.components.overlays.KomiToastState
 import zed.rainxch.core.presentation.components.overlays.rememberKomiToastState
@@ -91,6 +96,7 @@ import zed.rainxch.core.presentation.utils.arrowKeyScroll
 import zed.rainxch.core.presentation.utils.toIcon
 import zed.rainxch.core.presentation.utils.toLabel
 import zed.rainxch.githubstore.core.presentation.res.Res
+import zed.rainxch.githubstore.core.presentation.res.bottom_nav_search_title
 import zed.rainxch.githubstore.core.presentation.res.clipboard_link_detected
 import zed.rainxch.githubstore.core.presentation.res.detected_links
 import zed.rainxch.githubstore.core.presentation.res.dismiss
@@ -118,6 +124,7 @@ import zed.rainxch.search.presentation.model.SearchSourceUi
 import zed.rainxch.search.presentation.model.SortByUi
 import zed.rainxch.search.presentation.utils.label
 import kotlin.time.Duration.Companion.milliseconds
+import zed.rainxch.core.presentation.layout.withoutBottom
 
 @Composable
 fun SearchRoot(
@@ -347,7 +354,7 @@ fun SearchScreen(
         },
     ) { innerPadding ->
         Box(
-            modifier = Modifier.fillMaxSize().padding(innerPadding),
+            modifier = Modifier.fillMaxSize().padding(innerPadding.withoutBottom()),
             contentAlignment = Alignment.TopCenter,
         ) {
             val gridEdgeInset = 12.dp
@@ -571,7 +578,7 @@ fun SearchScreen(
                                 contentPadding =
                                     PaddingValues(
                                         top = 12.dp,
-                                        bottom = 12.dp,
+                                        bottom = 12.dp + innerPadding.calculateBottomPadding(),
                                     ),
                                 modifier =
                                     Modifier
@@ -848,75 +855,54 @@ private fun SearchTopbar(
     state: SearchState,
     focusRequester: FocusRequester,
 ) {
-    Row(
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .statusBarsPadding()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
-    ) {
-        KomiTextField(
-            value = state.query,
-            onValueChange = { value ->
-                onAction(SearchAction.OnSearchChange(value))
-            },
-            placeholder = stringResource(Res.string.search_repositories_hint),
-            leadingIcon = Icons.Rounded.Search,
-            onClear = { onAction(SearchAction.OnClearClick) },
-            keyboardType = KeyboardType.Text,
-            onCommit = { onAction(SearchAction.OnSearchImeClick) },
-            modifier = Modifier
-                .weight(1f)
-                .focusRequester(focusRequester),
-            multiline = false
-        )
-
-        FiltersPillButton(
-            activeCount = state.activeFilterCount,
-            onClick = { onAction(SearchAction.OnToggleFiltersSheet) },
-        )
-    }
+    // In Classic the field and the filters button move to the tab card at the bottom.
+    KomiTopBar(
+        title = stringResource(Res.string.bottom_nav_search_title),
+        search = {
+            KomiTextField(
+                value = state.query,
+                onValueChange = { value ->
+                    onAction(SearchAction.OnSearchChange(value))
+                },
+                placeholder = stringResource(Res.string.search_repositories_hint),
+                leadingIcon = Icons.Rounded.Search,
+                onClear = { onAction(SearchAction.OnClearClick) },
+                keyboardType = KeyboardType.Text,
+                onCommit = { onAction(SearchAction.OnSearchImeClick) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .focusRequester(focusRequester),
+                multiline = false
+            )
+        },
+        actions = {
+            FiltersButton(
+                activeCount = state.activeFilterCount,
+                onClick = { onAction(SearchAction.OnToggleFiltersSheet) },
+            )
+        },
+    )
 }
 
+// The search field's filters on the core icon button (a press morph and tooltip in Classic, the
+// ink box in Manga): filled once a filter is on, with how many as a badge.
 @Composable
-private fun FiltersPillButton(
+private fun FiltersButton(
     activeCount: Int,
     onClick: () -> Unit,
 ) {
-    val colors = LocalPersonality.current.colors
-    val shape = RoundedCornerShape(LocalPersonality.current.shape.cornerSmall)
-    val container =
-        if (activeCount > 0) colors.primary
-        else colors.surface
-    val content =
-        if (activeCount > 0) colors.onPrimary
-        else colors.onSurface
-    Row(
-        modifier = Modifier
-            .height(48.dp)
-            .clip(shape)
-            .background(container, shape)
-            .clickable(onClick = onClick)
-            .padding(horizontal = 14.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
+    KomiBadgedBox(
+        badge = {
+            if (activeCount > 0) KomiBadge(count = activeCount, tone = KomiBadgeTone.Neutral)
+        },
     ) {
-        KomiIcon(
-            imageVector = Icons.Default.FilterList,
+        KomiIconButton(
+            icon = Icons.Rounded.FilterList,
             contentDescription = stringResource(Res.string.search_filters_button),
-            modifier = Modifier.size(18.dp),
-            tint = content,
+            onClick = onClick,
+            variant = if (activeCount > 0) KomiButtonVariant.Primary else KomiButtonVariant.Tonal,
+            size = KomiIconButtonSize.Lg,
         )
-
-        if (activeCount > 0) {
-            KomiText(
-                text = activeCount.toString(),
-                role = KomiTextRole.LabelSmall,
-                color = content,
-            )
-        }
     }
 }
 
