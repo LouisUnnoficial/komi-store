@@ -254,7 +254,9 @@ class DefaultDownloadOrchestrator(
         } catch (e: CancellationException) {
             throw e
         } catch (e: AssetSourceGoneException) {
-            val refetched = assetSourceRefetcher.refetch(spec)
+            // The same-name replacement covers a rebuilt asset. A renamed one only shows up when
+            // the app's tracked release is resolved again, so fall back to that before giving up.
+            val refetched = assetSourceRefetcher.refetch(spec) ?: resolveTrackedReplacement(spec)
             if (refetched == null) {
                 retryViaAuthenticatedAssetApi(e, spec)
             } else {
@@ -395,6 +397,53 @@ class DefaultDownloadOrchestrator(
         if (!signedIn) return null
         return GithubAssetAuth.assetApiUrl(spec.repoOwner, spec.repoName, spec.asset.id)
     }
+
+    // The stored URL is stale, and the release no longer serves that exact asset name. Ask the
+    // tracked-release resolver for whatever the app should install now and retry once with it,
+    // but only inside the same release: the download may be a version picked in Details, and a
+    // different tag would install one nobody chose.
+    private suspend fun resolveTrackedReplacement(spec: DownloadSpec): DownloadSpec? =
+        try {
+            val resolved = installedAppsRepository.resolveTrackedRelease(spec.packageName)
+            when {
+                resolved == null -> {
+                    Logger.w {
+                        "Orchestrator: ${spec.packageName} has no tracked release after " +
+                            "${spec.asset.name} went 404"
+                    }
+                    null
+                }
+
+                resolved.release.tagName != spec.releaseTag -> {
+                    Logger.w {
+                        "Orchestrator: ${spec.packageName} went 404 on ${spec.releaseTag}, but it " +
+                            "tracks ${resolved.release.tagName}; not swapping releases"
+                    }
+                    null
+                }
+
+                resolved.primaryAsset.downloadUrl == spec.asset.downloadUrl -> {
+                    null
+                }
+
+                else -> {
+                    Logger.i {
+                        "Orchestrator: ${spec.packageName} went 404 on ${spec.asset.name}; " +
+                            "retrying with ${resolved.release.tagName}/${resolved.primaryAsset.name}"
+                    }
+                    spec.copy(
+                        asset = resolved.primaryAsset,
+                        releaseTag = resolved.release.tagName,
+                        releaseId = resolved.release.id,
+                    )
+                }
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Logger.w(e) { "Orchestrator: tracked-release fallback failed for ${spec.packageName}" }
+            null
+        }
 
     private suspend fun runInstall(
         spec: DownloadSpec,
