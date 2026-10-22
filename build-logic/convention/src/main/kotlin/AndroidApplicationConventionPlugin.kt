@@ -43,6 +43,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                             .toString()
                             .toInt()
                     versionName = libs.findVersion("projectVersionName").get().toString()
+                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
                 packaging {
                     resources {
