@@ -8,13 +8,13 @@
 
 <p align="center">
  <a href="https://github.com/komi-store/komi-store/releases/latest">
-  <img src="https://api.github-store.org/v1/badge/komi-store/komi-store/downloads/5/2?label=Downloads%20:" alt="Downloads"/>
+  <img src="https://api.github-store.org/v1/badge/komi-store/komi-store/downloads/5/2?label=Downloads%20:" alt="Baixados"/>
 </a>
 <a href="https://github.com/komi-store/komi-store/stargazers">
-  <img src="https://m3-markdown-badges.vercel.app/stars/3/2/komi-store/komi-store" alt="Stars"/>
+  <img src="https://m3-markdown-badges.vercel.app/stars/3/2/komi-store/komi-store" alt="Estrelas"/>
 </a>
 <a href="https://github.com/komi-store/komi-store/releases/latest">
-  <img src="https://api.github-store.org/v1/badge/komi-store/komi-store/release/9/1?label=Latest%20version%20:" alt="Latest release"/>
+  <img src="https://api.github-store.org/v1/badge/komi-store/komi-store/release/9/1?label=Latest%20version%20:" alt="Último lançamento"/>
 </a>
 </p>
 
@@ -31,9 +31,9 @@
 
 <div align="center">
 
-## Project Overview 🗺️
+## Visão geral do projeto 🗺️
 
-Komi Store is a cross-platform app store for releases on GitHub, Codeberg and other Forgejo or Gitea forges, designed to simplify discovering and installing open-source software.
+A Komi Store é uma loja de aplicativos multiplataforma para lançamentos no GitHub, Codeberg e outras plataformas Forgejo ou Gitea, projetada para simplificar a descoberta e instalação de software de código aberto..
 
 </div>
 
@@ -41,12 +41,12 @@ Komi Store is a cross-platform app store for releases on GitHub, Codeberg and ot
 
 <div align="center">
   <a href="https://github.com/Safouene1/support-palestine-banner/blob/master/Markdown-pages/Support.md">
-    <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-project.svg" alt="Support Palestine" style="width: 100%;" />
+    <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-project.svg" alt="Apoie a Palestina" style="width: 100%;" />
   </a>
 </div>
 
-> [!CAUTION]
-> Free and Open-Source Android is under threat. Google will turn Android into a locked-down platform, restricting your essential freedom to install apps of your choice. Make your voice heard – [keepandroidopen.org](https://keepandroidopen.org/).
+> [!CUIDADO]
+> O Android, livre e de código aberto, está ameaçado. O Google transformará o Android em uma plataforma fechada, restringindo sua liberdade essencial de instalar os aplicativos que você escolher. Faça sua voz ser ouvida. – [keepandroidopen.org](https://keepandroidopen.org/).
 
 <p align="center">
   <img src="media-resources/banner.jpeg" width="99%" />
@@ -58,60 +58,60 @@ Komi Store is a cross-platform app store for releases on GitHub, Codeberg and ot
 
 ---
 
-### Download
+### Baixar
 
 <p>
   <a href="https://github.com/komi-store/komi-store/releases">
-    <img src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png" height="80" alt="Get it on GitHub" />
+    <img src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png" height="80" alt="Obtenha-o no GitHub" />
   </a>
   <a href="https://f-droid.org/en/packages/zed.rainxch.githubstore/">
-    <img src="https://f-droid.org/badge/get-it-on.png" height="80" alt="Get it on F-Droid" />
+    <img src="https://f-droid.org/badge/get-it-on.png" height="80" alt="Baixe no F-Droid" />
   </a>
 </p>
 
-> [!IMPORTANT]
-> **macOS Users:** You may see a warning that Apple cannot verify Komi Store. This happens because the app is distributed outside the App Store and is not notarized yet. Allow it via System Settings → Privacy & Security → Open Anyway, or run `xattr -dr com.apple.quarantine /Applications/Komi-Store.app` after installing.
+> [!IMPORTANTE]
+> **Usuários do macOS:** Vocês podem ver um aviso de que a Apple não consegue verificar a Komi Store. Isso acontece porque o aplicativo é distribuído fora da App Store e ainda não foi autenticado. Permita a instalação através de Configurações do Sistema → Privacidade e Segurança → Abrir mesmo assim, ou execute `xattr -dr com.apple.quarantine /Applications/Komi-Store.app` após a instalação.
 
 **Scoop**
 
-```powershell
-scoop bucket add komi-store https://github.com/komi-store/komi-store-scoop-bucket
-scoop install komi-store/komi-store
+```powerShell
+Adicionar balde de colher komi-store https://github.com/komi-store/komi-store-scoop-bucket
+Instale colher komi-store/komi-store
 ```
 
 **WinGet**
 
 ```powershell
-winget install zed.rainxch.githubstore
+winget instalar zed.rainxch.githubstore
 ```
 
-> [!TIP]
-> **macOS Users:** Install Komi Store with Homebrew.
+> [!DICA]
+> **Usuários de macOS:** Instale a Komi Store com o Homebrew.
 
 **Homebrew**
 
 ```bash
-brew tap komi-store/komi-store
-brew install --cask komi-store
+torneira de cerveja komi-store/komi-store
+instalação do brew --cask komi-store
 ```
 ---
 
-### Features
+### Características
 
-- **Smart discovery**
-- **Recently Released**
-- **Release browser & installs**
-- **Download mirror system**
-- **Rich details screen**
-- **App management**
-- **Collections**
-- **Tweaks**
-- **Localization** (Available in 14 languages)
-- **Network & performance**
+- **Descoberta inteligente**
+- **Lançado recentemente**
+- **Liberar navegador e instalações**
+- **Sistema de espelhos para baixar**
+- **Tela com detalhes avançados**
+- **Gerenciamento de aplicativos**
+- **Coleções**
+- **Ajustes**
+- **Localização** (Disponível em 14 idiomas)
+- **Rede e desempenho**
 
 ---
 
-### Team
+### Equipe
 
 <table align="center">
   <tr>
@@ -125,7 +125,7 @@ brew install --cask komi-store
       <br />
       <a href="https://github.com/rainxchzed"><b>rainxchzed</b></a>
       <br />
-      <img src="https://img.shields.io/badge/Creator-3D4654?style=flat-square" alt="Creator" />
+      <img src="https://img.shields.io/badge/Creator-3D4654?style=flat-square" alt="Criador" />
     </td>
     <td align="center">
       <a href="https://github.com/illumiat">
@@ -167,48 +167,48 @@ brew install --cask komi-store
 </table>
 
 <p align="center">
-  <sub>Maintainers are listed in alphabetical order.</sub>
+  <sub>Os responsáveis pela manutenção estão listados em ordem alfabética.</sub>
 </p>
 
 ---
 
-### Join Community
+### Junte-se à comunidade
 
 <p align="center">
   <a href="https://discord.komistore.app"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://t.me/komistoreapp"><img src="https://img.shields.io/badge/Telegram%20Channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Channel" /></a>
-  <a href="https://t.me/komistore_discussion"><img src="https://img.shields.io/badge/Telegram%20Group-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Group" /></a>
+  <a href="https://t.me/komistoreapp"><img src="https://img.shields.io/badge/Telegram%20Channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Canal do Telegram" /></a>
+  <a href="https://t.me/komistore_discussion"><img src="https://img.shields.io/badge/Telegram%20Group-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Grupo do Telegram" /></a>
 </p>
 
 ---
 
 
-### APK Signing Certificate
+### Certificado de assinatura de APK
 
 SHA-256:
 `B7:F2:8E:19:8E:48:C1:93:B0:38:C6:5D:92:DD:F7:BC:07:7B:0D:B5:9E:BC:9B:25:0A:6D:AC:48:C1:18:03:CA`
 
 ---
 
-### Business Inquiries
+### Consultas comerciais
 
-Komi Store is open to partnerships, sponsorships, and integrations.
+A Komi Store está aberta a parcerias, patrocínios e integrações.
 
-If you're interested in working together, reach out:
+Se você tiver interesse em trabalhar conosco, entre em contato:
 
-📧 **Email:** hello@komistore.app
-💬 **Discord:** [Join our community](https://discord.komistore.app)
+📧 **E-mail:** hello@komistore.app
+💬 **Discord:** [Junte-se à nossa comunidade](https://discord.komistore.app)
 
 ---
 
-### Disclaimer
+### Isenção de responsabilidade
 
-Komi Store only helps you discover and download release assets that are already published on
-GitHub, Codeberg and other forges by third‑party developers.
-The contents, safety, and behavior of those downloads are entirely the responsibility of their
-respective authors and distributors, not this project.
+A Komi Store apenas ajuda você a descobrir e baixar recursos de lançamentos que já foram publicados em
+GitHub, Codeberg e outras plataformas criadas por desenvolvedores terceirizados.
+O conteúdo, a segurança e o comportamento desses downloads são de inteira responsabilidade de seus usuários.
+Os direitos autorais pertencem aos respectivos autores e distribuidores, e não a este projeto.
 
-By using Komi Store, you understand and agree that you install and run any downloaded software at
-your own risk.
-This project does not review, validate, or guarantee that any installer is safe, free of malware, or
-fit for any particular purpose.
+Ao usar a Komi Store, você entende e concorda que instala e executa qualquer software baixado em
+por sua conta e risco.
+Este projeto não revisa, valida ou garante que qualquer instalador seja seguro, livre de malware ou...
+adequado para qualquer finalidade específica.
