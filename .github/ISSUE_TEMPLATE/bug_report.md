@@ -1,27 +1,27 @@
 ---
-name: Bug report
-about: Something's broken? Tell us what's happening.
-title: ''
-labels: bug
-assignees: ''
+nome: Relatório de erro
+sobre: Algo está quebrado? Conte-nos o que está acontecendo.
+título: ''
+rótulos: bug
+cessionários: ''
 ---
 
-> Already in the app? **Profile → Send feedback** auto-fills app version, platform, and installer. Fastest path.
+> Já está no aplicativo? **Perfil → Enviar feedback** preenche automaticamente a versão do aplicativo, a plataforma e o instalador. Caminho mais rápido.
 
-## What's wrong
+## O que está errado
 
-What were you trying to do, and what happened instead?
+O que você estava tentando fazer e o que aconteceu em vez disso?
 
-## How to reproduce
+## Como reproduzir
 
 1.
 2.
 3.
 
-## Your setup
+## Sua configuração
 
-App version · Android version + device, **or** Desktop OS + version.
+Versão do aplicativo · Versão do Android + dispositivo, **ou** Sistema operacional do computador + versão.
 
-## Anything else
+## Algo mais
 
-Screenshots, logs, the GitHub repo URL you were trying to install — whatever helps. Don't sweat it if you don't have all of it.
+Capturas de tela, registros de atividades, a URL do repositório do GitHub que você estava tentando instalar — qualquer informação que ajude. Não se preocupe se não tiver tudo.
