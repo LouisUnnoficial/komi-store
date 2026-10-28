@@ -1,20 +1,20 @@
 ---
-description: Run the checks CI runs on pull requests and report what fails
+descrição: Execute as verificações que o CI realiza nas solicitações de pull e relate o que falhou.
 ---
 
-Run the checks that `.github/workflows/pr-checks.yml` runs, in this order, from the repository root. Use `--continue` so one failure doesn't hide the next.
+Execute as verificações que o arquivo `.github/workflows/pr-checks.yml` executa, nesta ordem, a partir da raiz do repositório. Use `--continue` para que uma falha não oculte a próxima.
 
-1. `./gradlew spotlessApply` formats the files changed against `origin/main`. If it reports a lint it can't fix (Compose rules such as a missing `modifier` or parameter order), fix the code by hand.
+1. `./gradlew spotlessApply` formata os arquivos alterados em relação a `origin/main`. Se reportar um erro de lint que não consegue corrigir (regras do Compose, como um `modificador` ausente ou ordem de parâmetros), corrija o código manualmente.
 2. `./gradlew compileKotlinJvm compileAndroidMain :androidApp:compileDebugKotlin jvmTest detekt :konsist-test:test --continue`
 3. `./gradlew lintDebug lintAndroidMain --continue`
-4. `./gradlew stabilityCheck` in its own invocation, after the JVM and Android compiles in step 2.
+4. `./gradlew stabilityCheck` em sua própria invocação, após a compilação da JVM e do Android na etapa 2.
 
-CI also runs an `Agent config` job (agnix); there is no local step for it.
+O CI também executa uma tarefa `Agent config` (agnix); não há nenhuma etapa local para isso.
 
-Then report each step as passed or failed, with the first lines of each failure and the file and line it points at.
+Em seguida, registre cada etapa como concluída com sucesso ou reprovada, incluindo as primeiras linhas de cada falha, o arquivo e a linha correspondentes.
 
-- Fix what this change caused. If a failure comes from code the change didn't touch, say so instead of fixing it.
-- Don't refresh a baseline (`detektBaseline`, `updateLintBaseline` or `updateLintBaselineAndroidMain`, `stabilityDump`) unless the change is meant to alter it, and say so when you do.
-- If Gradle can't start from your shell, run the same commands in a terminal and read the output from there.
+- Corrija o que essa alteração causou. Se a falha for proveniente de um código que não foi alterado, indique isso em vez de corrigi-la.
+- Não atualize uma linha de base (`detektBaseline`, `updateLintBaseline` ou `updateLintBaselineAndroidMain`, `stabilityDump`) a menos que a alteração tenha como objetivo modificá-la, e informe isso quando o fizer.
+- Se o Gradle não conseguir iniciar a partir do seu shell, execute os mesmos comandos em um terminal e leia a saída de lá.
 
-Details: `docs/agents/checks.md`.
+Detalhes: `docs/agents/checks.md`.
