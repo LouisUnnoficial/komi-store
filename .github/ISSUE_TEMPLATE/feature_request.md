@@ -1,19 +1,19 @@
 ---
-name: Feature request
-about: Pitch an idea — start with the user pain.
+name: Solicitação de recurso
+about: Apresente uma ideia — comece com o problema do usuário..
 title: ''
-labels: enhancement
+labels: aprimoramento
 assignees: ''
 ---
 
-## The pain
+## A dor
 
-What are you trying to do, and where does the current app fall short?
+O que você está tentando fazer e onde o aplicativo atual deixa a desejar?
 
-## What would help
+## O que ajudaria?
 
-What would the app do differently if this were solved?
+O que o aplicativo faria de diferente se esse problema fosse resolvido?
 
-## Anything else
+## Algo mais
 
-Mockups, links, alternatives you considered. Optional.
+Maquetes, links, alternativas que você considerou. Opcional.
