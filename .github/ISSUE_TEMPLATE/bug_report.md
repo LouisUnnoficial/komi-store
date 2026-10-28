@@ -1,9 +1,9 @@
 ---
-nome: Relatório de erro
-sobre: Algo está quebrado? Conte-nos o que está acontecendo.
-título: ''
-rótulos: bug
-cessionários: ''
+name: Relatório de erro
+about: Algo está quebrado? Conte-nos o que está acontecendo.
+title: ''
+labels: bug
+assignees: ''
 ---
 
 > Já está no aplicativo? **Perfil → Enviar feedback** preenche automaticamente a versão do aplicativo, a plataforma e o instalador. Caminho mais rápido.
