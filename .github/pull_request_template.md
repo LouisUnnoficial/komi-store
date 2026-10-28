@@ -1,15 +1,15 @@
-## What and why
+## O quê e porquê
 
-<!-- What changes for the user or the codebase, and why. Link the issue: "Fixes #123". -->
+<!-- O que muda para o usuário ou para o código-fonte e por quê? Indique o problema.: "Fixes #123". -->
 
-## How it was tested
+## Como foi testado
 
-<!-- Device or OS you ran it on (for example "Pixel 8, Android 15" or "Windows 11 desktop"), the steps you took, and what you saw. -->
+<!-- Dispositivo ou sistema operacional em que você executou o programa (por exemplo, "Pixel 8, Android 15" ou "Windows 11 desktop"), os passos que você seguiu e o que você viu. -->
 
-- [ ] Ran `./gradlew spotlessApply`, and `jvmTest` passes locally
-- [ ] Tried the change on a device or the desktop app
-- [ ] Screenshots or a recording are attached (UI changes only)
+- [ ] Executei `./gradlew spotlessApply` e o teste `jvmTest` foi aprovado localmente.
+- [ ] Tentei a alteração em um dispositivo ou no aplicativo para desktop.
+- [ ] Capturas de tela ou uma gravação estão anexadas (apenas alterações na interface do usuário).
 
-## Notes for the reviewer
+## Notas para o revisor
 
-<!-- Anything you're unsure about, tradeoffs, or follow-ups. Delete this section if there's nothing. -->
+<!-- Qualquer dúvida, compensação ou acompanhamento. Apague esta seção se não houver nada.. -->
