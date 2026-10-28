@@ -21,10 +21,10 @@
 <table align="center">
   <tr>
     <td>
-      <a href="https://trendshift.io/repositories/22313" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22313" alt="komi-store%2Fkomi-store | Trendshift" width="250" height="55" /></a>
+      <a href="https://trendshift.io/repositories/22313" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22313" alt="komi-store%2Fkomi-store | Mudança de tendência" width="250" height="55" /></a>
     </td>
     <td>
-      <a href="https://hellogithub.com/en/repository/kurikomi-labs/komi-store" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=a95f4a4830bc4a69b56f96ac7efaacf8&claim_uid=sOz1lfiG4ARQYIK&theme=dark" alt="Featured｜HelloGitHub" width="250" height="54" /></a>
+      <a href="https://hellogithub.com/en/repository/kurikomi-labs/komi-store" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=a95f4a4830bc4a69b56f96ac7efaacf8&claim_uid=sOz1lfiG4ARQYIK&theme=dark" alt="Em destaque | HelloGitHub" width="250" height="54" /></a>
     </td>
   </tr>
 </table>
@@ -75,14 +75,14 @@ A Komi Store é uma loja de aplicativos multiplataforma para lançamentos no Git
 **Scoop**
 
 ```powerShell
-Adicionar balde de colher komi-store https://github.com/komi-store/komi-store-scoop-bucket
-Instale colher komi-store/komi-store
+add Komi-Store spoon bucket https://github.com/komi-store/komi-store-scoop-bucket
+install spoon komi-store/komi-store
 ```
 
 **WinGet**
 
 ```powershell
-winget instalar zed.rainxch.githubstore
+install winget zed.rainxch.githubstore
 ```
 
 > [!DICA]
@@ -91,8 +91,8 @@ winget instalar zed.rainxch.githubstore
 **Homebrew**
 
 ```bash
-torneira de cerveja komi-store/komi-store
-instalação do brew --cask komi-store
+beer tap komi-store/komi-store
+brew installation --cask komi-store
 ```
 ---
 
@@ -137,7 +137,7 @@ instalação do brew --cask komi-store
       <br />
       <a href="https://github.com/illumiat"><b>illumiat</b></a>
       <br />
-      <img src="https://img.shields.io/badge/Maintainer-3D4654?style=flat-square" alt="Maintainer" />
+      <img src="https://img.shields.io/badge/Maintainer-3D4654?style=flat-square" alt="Mantenedor" />
     </td>
     <td align="center">
       <a href="https://github.com/KelvinCrag">
@@ -149,7 +149,7 @@ instalação do brew --cask komi-store
       <br />
       <a href="https://github.com/KelvinCrag"><b>KelvinCrag</b></a>
       <br />
-      <img src="https://img.shields.io/badge/Maintainer-3D4654?style=flat-square" alt="Maintainer" />
+      <img src="https://img.shields.io/badge/Maintainer-3D4654?style=flat-square" alt="Mantenedor" />
     </td>
     <td align="center">
       <a href="https://github.com/YumeYuka">
@@ -161,7 +161,7 @@ instalação do brew --cask komi-store
       <br />
       <a href="https://github.com/YumeYuka"><b>YumeYuka</b></a>
       <br />
-      <img src="https://img.shields.io/badge/Maintainer-3D4654?style=flat-square" alt="Maintainer" />
+      <img src="https://img.shields.io/badge/Maintainer-3D4654?style=flat-square" alt="Mantenedor" />
     </td>
   </tr>
 </table>
